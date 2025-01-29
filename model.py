@@ -8,7 +8,7 @@ from sklearn.metrics import classification_report
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
-path = '/Users/davutcagri/Documents/Projeler/BadWordFilterModel/datasets/train.csv'
+path = 'datasets/train.csv'
 
 df = pd.read_csv(path)
 
@@ -26,7 +26,7 @@ Y = df['label']
 model.fit(X, Y)
 
 def test():
-    test_df = pd.read_csv('/Users/davutcagri/Documents/Projeler/BadWordFilterModel/datasets/test.csv')
+    test_df = pd.read_csv('datasets/test.csv')
     X_test = tfidf.transform(test_df['text'])
     Y_test = test_df['label']
 
