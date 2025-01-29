@@ -25,14 +25,14 @@ Y = df['label']
 #Tüm veriyi kullanarak modeli eğitmek
 model.fit(X, Y)
 
-def test():
+def classification_test():
     test_df = pd.read_csv('datasets/test.csv')
     X_test = tfidf.transform(test_df['text'])
     Y_test = test_df['label']
 
     y_pred = model.predict(X_test)
 
-    print(classification_report(y_pred, Y_test))
+    return classification_report(y_pred, Y_test)
 
 def input_filter(input_text):
     X_input = tfidf.transform([input_text])

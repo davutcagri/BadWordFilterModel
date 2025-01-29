@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
-from model import input_filter, test
+from flask_cors import CORS
+from model import input_filter, classification_test
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/filter', methods=['POST'])
 def bad_word_filter():
@@ -21,3 +23,7 @@ def bad_word_filter():
 
     except Exception as e:
         return jsonify({'error': str(e)})
+
+@app.route('/report', methods=['POST'])
+def report():
+    return classification_test()
